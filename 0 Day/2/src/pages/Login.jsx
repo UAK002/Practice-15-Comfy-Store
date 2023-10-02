@@ -5,14 +5,6 @@ import { FormInput, SubmitBtn } from '../components';
 const Login = () => {
   return (
     <section className="grid place-items-center h-screen">
-      {/* (Hs,G, Pic ) (Hs,G, Pic) h-screen, grid, place-items-center*/}
-      {/*  (C,W,P, Bg, Sha, F, F-c, G) card, w-96, p-8,
-       bg-base-100, shadow-lg, flex, flex-col, gap-y-4 */}
-
-      {/* (Tc, T-3, Fb ) text-center, text-3xl, font-bold */}
-
-      {/*  (Ml, L, L-h, L-P, C )ml-2 link link-hover 
-        link-primary capitalize */}
       <Form
         method="POST"
         className="card w-96 p-8 bg-base-100 shadow-lg flex flex-col gap-y-4"

@@ -3,7 +3,7 @@ import { FormInput, SubmitBtn } from '../components';
 
 const Login = () => {
   return (
-    <nav className="grid place-items-center h-screen">
+    <section className="grid place-items-center h-screen">
       <Form
         method="POST"
         className="card w-96 p-8 bg-base-100 shadow-lg flex flex-col gap-y-4"
@@ -37,7 +37,7 @@ const Login = () => {
           </Link>
         </p>
       </Form>
-    </nav>
+    </section>
   );
 };
 export default Login;

@@ -1,5 +1,5 @@
 import { useLoaderData, Link } from 'react-router-dom';
-import { customFetch, formatPrice } from '../utils';
+import { customFetch, formatPrice, generateAmountOptions } from '../utils';
 import { useState } from 'react';
 
 export const loader = async ({ params }) => {
@@ -82,9 +82,7 @@ const SingleProduct = () => {
               value={amount}
               onChange={handleAmount}
             >
-              <option value={1}>1</option>
-              <option value={2}>2</option>
-              <option value={3}>3</option>
+              {generateAmountOptions(20)}
             </select>
           </div>
           {/* CART */}
@@ -102,6 +100,3 @@ const SingleProduct = () => {
   );
 };
 export default SingleProduct;
-
-// - dev tools > components > check the useState values
-// - dev tools > components > values change for useState color and useState amount, when we make changes in the browser

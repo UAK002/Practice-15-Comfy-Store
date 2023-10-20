@@ -14,7 +14,7 @@ const Filters = () => {
         label="select category"
         name="category"
         list={meta.categories}
-        size="input-sm"
+        size="select-sm"
       />
 
       {/* COMPANIES */}
@@ -22,14 +22,14 @@ const Filters = () => {
         label="select company"
         name="company"
         list={meta.companies}
-        size="input-sm"
+        size="select-sm"
       />
       {/* ORDER */}
       <FormSelect
         label="sort by"
         name="order"
         list={['a-z', 'z-a', 'high', 'low']}
-        size="input-sm"
+        size="select-sm"
       />
       {/* Price */}
       <FormRange name="price" label="select price" size="range-sm" />

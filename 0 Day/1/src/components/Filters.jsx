@@ -57,7 +57,7 @@ const Filters = () => {
         defaultValue={shipping}
       />
       {/* BUTTONS */}
-      <button type="button" className="btn btn-primary btn-sm">
+      <button type="submit" className="btn btn-primary btn-sm">
         search
       </button>
       <Link to="/products" className="btn btn-accent btn-sm">

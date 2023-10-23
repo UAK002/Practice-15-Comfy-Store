@@ -7,6 +7,7 @@ const PaginationContainer = () => {
     return index + 1;
   });
   // console.log(pages);
+
   const handlePageChange = (pageNumber) => {
     console.log(pageNumber);
   };

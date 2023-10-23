@@ -29,9 +29,7 @@ const Navbar = () => {
     localStorage.setItem('theme', theme);
   }, [theme]);
 
-  const numItemsCart = useSelector((state) => {
-    state.cartState.numItemsCart;
-  });
+  const numItemsCart = useSelector((state) => state.cartState.numItemsCart);
 
   return (
     <nav className="bg-base-200">

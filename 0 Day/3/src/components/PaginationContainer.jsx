@@ -3,12 +3,22 @@ import { useLoaderData, useNavigate, useLocation } from 'react-router-dom';
 const PaginationContainer = () => {
   const { meta } = useLoaderData();
   const { pageCount, page } = meta.pagination;
+  const { search, pathname } = useLocation();
+  // console.log(search);
+  // console.log(pathname);
+  const navigate = useNavigate();
   const pages = Array.from({ length: pageCount }, (_, index) => {
     return index + 1;
   });
   const handlePageChange = (pageNumber) => {
-    console.log(pageNumber);
+    const searchParams = new URLSearchParams(search);
+    // console.log(searchParams);
+    searchParams.set('page', pageNumber);
+    // console.log(searchParams);
+    navigate(`${pathname}?${searchParams.toString()}`);
+    // console.log(pageNumber);
   };
+
   if (pageCount < 2) return null;
 
   return (
@@ -16,7 +26,11 @@ const PaginationContainer = () => {
       <div className="join">
         <button
           className=" btn btn-xs sm:btn-md join-item"
-          onClick={() => handlePageChange('prev')}
+          onClick={() => {
+            let prevPage = page - 1;
+            if (prevPage < 1) prevPage = pageCount;
+            handlePageChange(prevPage);
+          }}
         >
           prev
         </button>
@@ -35,7 +49,11 @@ const PaginationContainer = () => {
         })}
         <button
           className="btn btn-xs sm:btn-md join-item"
-          onClick={() => handlePageChange('next')}
+          onClick={() => {
+            let nextPage = page + 1;
+            if (nextPage > pageCount) nextPage = 1;
+            handlePageChange(nextPage);
+          }}
         >
           next
         </button>

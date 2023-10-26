@@ -27,9 +27,7 @@ const Navbar = () => {
     localStorage.setItem('theme', theme);
   }, [theme]);
 
-  const numsItemsInCart = useSelector(
-    (state) => state.cartState.numsItemsInCart
-  );
+  const numItemsInCart = useSelector((state) => state.cartState.numItemsInCart);
   return (
     <nav className="bg-base-200">
       <div className="navbar align-element">
@@ -73,7 +71,7 @@ const Navbar = () => {
             <div className="indicator">
               <BsCart3 className="w-6 h-6" />
               <span className="badge badge-sm badge-primary indicator-item">
-                {numsItemsInCart}
+                {numItemsInCart}
               </span>
             </div>
           </NavLink>

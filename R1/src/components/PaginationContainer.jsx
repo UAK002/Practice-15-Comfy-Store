@@ -4,11 +4,17 @@ const PaginationContainer = () => {
   const { meta } = useLoaderData();
   const { page, pageCount } = meta.pagination;
 
+  const { search, pathname } = useLocation();
+  const navigate = useNavigate();
+
   const pages = Array.from({ length: pageCount }, (_, index) => {
     return index + 1;
   });
 
   const handlePageChange = (pageNumber) => {
+    const searchParams = new URLSearchParams(search);
+    searchParams.set('page', pageNumber);
+    navigate(`${pathname}?${searchParams.toString()}`);
     console.log(pageNumber);
   };
 
@@ -20,7 +26,12 @@ const PaginationContainer = () => {
         <button
           type="button"
           className="btn btn-xs sm:btn-md join-item"
-          onClick={() => handlePageChange('prev')}
+          onClick={() => {
+            let prevPage = page - 1;
+            if (prevPage < 1) prevPage = pageCount;
+
+            handlePageChange(prevPage);
+          }}
         >
           Prev
         </button>
@@ -43,7 +54,12 @@ const PaginationContainer = () => {
         <button
           type="button"
           className="btn btn-xs sm:btn-md join-item"
-          onClick={() => handlePageChange('next')}
+          onClick={() => {
+            let nextPage = page + 1;
+            if (nextPage > pageCount) nextPage = 1;
+
+            handlePageChange(nextPage);
+          }}
         >
           Next
         </button>

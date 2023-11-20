@@ -21,7 +21,7 @@ const cartSlice = createSlice({
     addItem: (state, action) => {
       //   console.log(action.payload);
       const { product } = action.payload;
-      const item = state.cartItems.find((i) => i.cartID === product.productID);
+      const item = state.cartItems.find((i) => i.cartID === product.cartID);
       // console.log(item);
       if (item) {
         item.amount += product.amount;
@@ -44,7 +44,7 @@ const cartSlice = createSlice({
     removeItem: (state, action) => {
       const { cartID } = action.payload;
       const product = state.cartItems.find((i) => i.cartID === cartID);
-      state.cartItems.filter((i) => i.cartID !== cartID);
+      state.cartItems = state.cartItems.filter((i) => i.cartID !== cartID);
       state.numItemsInCart -= product.amount;
       state.cartTotal -= product.price * product.amount;
       cartSlice.caseReducers.calculateTotals(state);

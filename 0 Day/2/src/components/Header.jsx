@@ -6,7 +6,7 @@ import { logoutUser } from '../features/user/userSlice';
 const Header = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const user = useSelector((state) => state.userState.state);
+  const user = useSelector((state) => state.userState.user);
 
   const handleLogout = () => {
     navigate('/');

@@ -41,7 +41,7 @@ const cartSlice = createSlice({
     removeItem: (state, action) => {
       const { cartID } = action.payload;
       const product = state.cartItems.find((i) => i.cartID === cartID);
-      state.cartItems = state.cartItems.map((i) => i.cartID !== cartID);
+      state.cartItems = state.cartItems.filter((i) => i.cartID !== cartID);
       state.numItemsInCart -= product.amount;
       state.cartTotal -= product.amount * product.price;
       cartSlice.caseReducers.calculateTotals(state);

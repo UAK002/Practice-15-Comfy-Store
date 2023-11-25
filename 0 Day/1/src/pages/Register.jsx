@@ -1,5 +1,6 @@
-import { Form, Link } from 'react-router-dom';
+import { Form, Link, redirect } from 'react-router-dom';
 import { SubmitBtn, FormInput } from '../components';
+import { customFetch } from '../utils';
 
 export const action = async ({ request }) => {
   const formData = await request.formData();
@@ -7,6 +8,11 @@ export const action = async ({ request }) => {
   return null;
 };
 
+try {
+  const response = customFetch.post('/auth/local/register', data);
+  toast.success('Account Created Successfully');
+  redirect('/login');
+} catch (error) {}
 const Register = () => {
   return (
     <section className="h-screen grid place-items-center">

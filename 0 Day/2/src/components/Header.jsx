@@ -32,7 +32,7 @@ const Header = () => {
             <Link to="/login" className="link link-hover text-xs sm:text-sm">
               Sign in / Guest
             </Link>
-            <Link to="/login" className="link link-hover text-xs sm:text-sm">
+            <Link to="/register" className="link link-hover text-xs sm:text-sm">
               Create Account
             </Link>
           </div>
